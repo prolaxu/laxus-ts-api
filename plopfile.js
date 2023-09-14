@@ -397,4 +397,27 @@ router.delete('/{{lastPartSnakeCasePlural name}}/:id', {{ lastPartPascalCase nam
         }
     });
 
+
+    // create app from  https://github.com/prolaxu/node-mysql-api-startter
+    plop.setGenerator('create-app', {
+        description: 'Create new project from node-mysql-api-startter',
+        prompts: [
+            {
+                type: 'input',
+                name: 'name',
+                message: 'Project name please'
+            },
+        ],
+        actions:function(data){
+            const actions = [
+                {
+                    type: 'add',
+                    path: `${process.cwd()}/${data.name}`,
+                    templateFile: `${process.cwd()}/node_modules/node-mysql-api-starter`,
+                },
+            ];
+            return actions;
+        }
+    });
+
 }

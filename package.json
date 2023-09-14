@@ -13,10 +13,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "plop": "^4.0.0"
-  },
   "dependencies": {
+    "node-mysql-api-startter": "git+https://github.com/prolaxu/node-mysql-api-startter.git",
+    "plop": "^4.0.0",
     "minimist": "^1.2.8",
     "pluralize": "^8.0.0"
   }
