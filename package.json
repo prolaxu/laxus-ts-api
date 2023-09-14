@@ -1,11 +1,11 @@
 {
-  "name": "laxus-cli",
+  "name": "@prolaxu/laxus-ts-api-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "laxus": "./index.js"
+    "laxus-ts-api": "./index.js"
   },
   "scripts": {
     "plop": "plop"
