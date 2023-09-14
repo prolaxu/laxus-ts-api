@@ -37,9 +37,6 @@ async function execSync(command) {
 }
 
 function createProject(projectName) {
-    //  mkdir project name
-    const projectDir = `${process.cwd()}/${projectName}`;
-    // cp node_modules/node-mysql-api-startter to project name
     console.log("Creating project ...");
     execSync(`
         git clone https://github.com/prolaxu/node-mysql-api-startter.git ${projectName} &&
