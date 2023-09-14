@@ -1,0 +1,23 @@
+{
+  "name": "laxus-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "laxus": "./index.js"
+  },
+  "scripts": {
+    "plop": "plop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "plop": "^4.0.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "pluralize": "^8.0.0"
+  }
+}

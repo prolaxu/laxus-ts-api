@@ -1,0 +1,19 @@
+import Response from "@core/class/Response";
+
+class {{ lastPartPascalCase name }}Response extends Response{
+
+    listResponse=(item:any)=>{
+        return {
+            // write your response for list here
+            ...item
+        }
+    };
+    detailResponse=(item:any)=>{
+        return {
+            // write your response for detail here
+            ...item
+        }
+    }
+}
+
+export default {{ lastPartPascalCase name }}Response;

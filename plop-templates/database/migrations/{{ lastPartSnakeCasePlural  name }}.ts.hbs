@@ -1,0 +1,13 @@
+import {  datetime, int, mysqlTable, uniqueIndex } from 'drizzle-orm/mysql-core';
+import { relations } from 'drizzle-orm';
+ 
+
+const {{ lastPartCamelCasePlural name }} = mysqlTable('{{ lastPartSnakeCasePlural name }}', {
+    id: int('id').autoincrement().primaryKey(),
+    // fields
+    created_at: datetime('created_at').default(new Date()),
+    updated_at: datetime('updated_at'),
+});
+
+
+export { {{ lastPartCamelCasePlural name }} };

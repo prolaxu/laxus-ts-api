@@ -1,0 +1,53 @@
+import CrudController from '@core/class/CurdController';
+import {{ lastPartPascalCase name }} from "@model/{{ lastPartPascalCaseWithPath name }}";
+import {{ lastPartPascalCase name }}CreateDto from "@dto/{{ lastPartSnakeCasePlural name }}/create.dto";
+import {{ lastPartPascalCase name }}UpdateDto from "@dto/{{ lastPartSnakeCasePlural name }}/update.dto";
+import {{ lastPartPascalCase name }}Response from "@/app/http/responses/{{ lastPartPascalCaseWithPath name }}Response";
+import { NextFunction,Response,Request } from 'express';
+import CheckPermission from '@/core/express-decoraters/checkPermission';
+
+
+class {{ lastPartPascalCase name }}Controller extends CrudController {
+    table = {{ lastPartPascalCase name }}.table;
+    model = {{ lastPartPascalCase name }};
+    createDto = {{ lastPartPascalCase name }}CreateDto;
+    updateDto = {{ lastPartPascalCase name }}UpdateDto;
+    response = new {{ lastPartPascalCase name }}Response;
+
+    @CheckPermission({
+        permissions: ['read-{{ lastPartSnakeCasePlural name }}']
+    })
+    async index(req: Request, res: Response, next: NextFunction) {
+        return super.index(req, res, next);
+    }
+
+    @CheckPermission({
+        permissions: ['create-{{ lastPartSnakeCasePlural name }}']
+    })
+    async create(req: Request, res: Response, next: NextFunction) {
+        return super.create(req, res, next);
+    }
+
+    @CheckPermission({
+        permissions: ['read-{{ lastPartSnakeCasePlural name }}']
+    })
+    async show(req: Request, res: Response, next: NextFunction) {
+        return super.show(req, res, next);
+    }
+
+    @CheckPermission({
+        permissions: ['update-{{ lastPartSnakeCasePlural name }}']
+    })
+    async update(req: Request, res: Response, next: NextFunction) {
+        return super.update(req, res, next);
+    }
+
+    @CheckPermission({
+        permissions: ['delete-{{ lastPartSnakeCasePlural name }}']
+    })
+    async delete(req: Request, res: Response, next: NextFunction) {
+        return super.delete(req, res, next);
+    }
+    
+}
+export default new {{ lastPartPascalCase name }}Controller;

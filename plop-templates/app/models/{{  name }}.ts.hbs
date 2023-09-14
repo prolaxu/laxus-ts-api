@@ -1,0 +1,14 @@
+import { {{ lastPartSnakeCasePlural name }} } from "@/database/migrations";
+import Model from "@core/class/Model";
+import * as bcrypt from "bcrypt";
+
+class {{ lastPartPascalCase name }} extends Model{
+    table = {{ lastPartSnakeCasePlural name }};
+    permissionString = '{{ lastPartSnakeCasePlural name }}';
+    
+    fillables:string[] = [
+       
+    ];
+}
+
+export default new {{ lastPartPascalCase name }};
