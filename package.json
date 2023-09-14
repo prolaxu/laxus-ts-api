@@ -1,6 +1,6 @@
 {
-  "name": "@prolaxu/laxus-ts-api-cli",
-  "version": "1.0.1",
+  "name": "@prolaxu/laxus-ts-api",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "type": "module",
