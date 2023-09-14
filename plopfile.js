@@ -1,4 +1,6 @@
 import pluralize from 'pluralize';
+import { exec } from 'node:child_process';
+
 function generatePassword(passwordLength) {
     const numberChars = "0123456789";
     const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -23,6 +25,33 @@ function shuffleArray(array) {
     return array;
 }
 
+async function execSync(command) {
+    // Execute the command
+    exec(command, (error, stdout, stderr) => {
+        if (error) {
+        console.error(`Error executing command: ${error}`);
+        return;
+        }
+        console.log(`${stdout}`);
+    });
+}
+
+function createProject(projectName) {
+    //  mkdir project name
+    const projectDir = `${process.cwd()}/${projectName}`;
+    // cp node_modules/node-mysql-api-startter to project name
+    console.log("Creating project ...");
+    execSync(`
+        git clone https://github.com/prolaxu/node-mysql-api-startter.git ${projectName} &&
+        cd ${projectName} &&
+        rm -rf .git && 
+        yarn install &&
+        laxus-ts-api gen:env &&
+        laxus-ts-api gen:key
+    `,
+         { cwd: process.cwd() }
+    );
+}
 export default function (plop) {
     // helper for getting last part of path and make it pascal case
     plop.setHelper('lastPartPascalCase', (text) => {
@@ -399,7 +428,7 @@ router.delete('/{{lastPartSnakeCasePlural name}}/:id', {{ lastPartPascalCase nam
 
 
     // create app from  https://github.com/prolaxu/node-mysql-api-startter
-    plop.setGenerator('create-app', {
+    plop.setGenerator('create', {
         description: 'Create new project from node-mysql-api-startter',
         prompts: [
             {
@@ -409,15 +438,8 @@ router.delete('/{{lastPartSnakeCasePlural name}}/:id', {{ lastPartPascalCase nam
             },
         ],
         actions:function(data){
-            const actions = [
-                {
-                    type: 'add',
-                    path: `${process.cwd()}/${data.name}`,
-                    templateFile: `${process.cwd()}/node_modules/node-mysql-api-starter`,
-                },
-            ];
-            return actions;
+            createProject(data.name);
+            return [];
         }
     });
-
 }
