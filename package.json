@@ -1,5 +1,5 @@
 {
-  "name": "@prolaxu/laxus-ts-api",
+  "name": "@prolaxu/laxus-ts-api-cli",
   "version": "1.0.2",
   "description": "",
   "main": "index.js",
